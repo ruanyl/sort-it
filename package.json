@@ -1,0 +1,24 @@
+{
+  "name": "sort-it",
+  "version": "0.1.0",
+  "description": "sort",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruanyl/sort-it"
+  },
+  "keywords": ["sort"] ,
+  "author": "Yulong Ruan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ruanyl/sort-it/issues"
+  },
+  "homepage": "https://github.com/ruanyl/sort-it",
+  "dependencies": {
+    "ava": "0.0.4"
+  },
+  "devDependencies": {}
+}
