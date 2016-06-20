@@ -19,11 +19,11 @@ $ npm install sort-it
 var sortIt = require('sort-it');
 
 var arr = [
-  {firstName: 'abc', lastName: 'efg'},
-  {firstName: 'bcd', lastName: 'fgh'},
-  {firstName: 'bcd', lastName: 'egh'},
-  {firstName: 'cde', lastName: 'ghi'},
-  {firstName: 'def', lastName: 'hij'}
+    {firstName: 'abc', lastName: 'efg', address: {country: 'FR'}},
+    {firstName: 'bcd', lastName: 'fgh', address: {country: 'CA'}},
+    {firstName: 'bcd', lastName: 'egh', address: {country: 'US'}},
+    {firstName: 'cde', lastName: 'ghi', address: {country: 'CA'}},
+    {firstName: 'def', lastName: 'hij', address: {country: 'BE'}}
 ];
 
 test(function (t) {
@@ -52,5 +52,22 @@ test(function (t) {
   t.assert(result[4].firstName === 'def');
   t.assert(result[1].lastName === 'fgh');
   t.assert(result[2].lastName === 'egh');
+});
+
+test(function (t) {
+  var result = sortIt(arr, ['firstName', '-lastName']);
+  t.assert(result[0].firstName === 'abc');
+  t.assert(result[4].firstName === 'def');
+  t.assert(result[1].lastName === 'fgh');
+  t.assert(result[2].lastName === 'egh');
+});
+
+test('asc by address.country', function (t) {
+    var result = sortIt(arr, 'address.country');
+    t.assert(result[0].address.country === 'BE');
+    t.assert(result[1].address.country === 'CA');
+    t.assert(result[2].address.country === 'CA');
+    t.assert(result[3].address.country === 'FR');
+    t.assert(result[4].address.country === 'US');
 });
 ```
